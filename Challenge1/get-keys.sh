@@ -4,11 +4,14 @@
 # deployed using "Deploy to Azure" button and will store them in a file named
 # "config.env" in the current directory.
 
-# Login to Azure
+# Login to Azures
+echo "hola"
+
 if [ -z "$(az account show)" ]; then
   echo "User not signed in Azure. Signin to Azure using 'az login' command."
   az login --use-device-code
 fi
+
 
 # Get the resource group name from the script parameter named resource-group
 resourceGroupName=""
@@ -27,6 +30,7 @@ if [ -z "$resourceGroupName" ]; then
     echo "Enter the resource group name where the resources are deployed:"
     read resourceGroupName
 fi
+
 
 # Get resource group deployments, find deployments starting with 'Microsoft.Template' and sort them by timestamp
 echo "Getting the deployments in '$resourceGroupName'..."
